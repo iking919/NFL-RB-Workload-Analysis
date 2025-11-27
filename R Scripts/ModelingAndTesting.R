@@ -71,13 +71,6 @@ ggplot(data.frame(fitted = fitted(lin.mod1), resid = resid(lin.mod1)),
 lin.mod2 <- lm(Scrimmage_Y.Tch ~ Scrimmage_Touch + Age + yards_per_game + touches_per_game, model_data)
 summary(lin.mod2)
 
-# Scatter + regression line (main predictor = Scrimmage_Touch)
-ggplot(model_data, aes(x = Scrimmage_Touch, y = Scrimmage_Y.Tch)) +
-  geom_point(alpha = 0.6) +
-  geom_smooth(method = "lm") +
-  labs(title = "Model 2: Multiple Linear Regression",
-       x = "Total Scrimmage Touches", y = "Yards per Touch")
-
 # Residuals vs Fitted
 ggplot(data.frame(fitted = fitted(lin.mod2), resid = resid(lin.mod2)),
        aes(x = fitted, y = resid)) +
